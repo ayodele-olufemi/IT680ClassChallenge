@@ -13,19 +13,29 @@ namespace ClassChallenge.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
 
         //public HomeController(ILogger<HomeController> logger)
         //{
         //    _logger = logger;
         //}
-
-        public HomeController(IConfiguration configuration, Data data) { }
+        protected readonly IConfiguration configuration;
+        public IData data;
+        public HomeController(IConfiguration configuration, IData data) {
+            this.configuration = configuration;
+            this.data = data;
+        }
 
 
         public IActionResult Index()
         {
-            return View();
+            return View(new Output()
+            {
+                ListOfColleges = data.GetAllColleges(),
+                ListOfDepartments = data.GetAllDepartments(),
+                ListOfUnits = data.GetAllUnits(), 
+                
+            });
         }
 
         public IActionResult Privacy()

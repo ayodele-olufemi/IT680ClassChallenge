@@ -4,21 +4,42 @@ using System.Linq;
 
 namespace InputData
 {
-    public interface Data
+    //Defining interface
+    public interface IData
     {
-        double GetAverageDepartmentSalary();
-        double GetAverageCollegeSalary();
-        double GetMaxDepartmentSalary();
-        double GetMinDepartmentSalary();
-        double GetMedianDepartmentSalary();
-        double GetMaxCollegeSalary();
-        double GetMinCollegeSalary();
-        double GetMedianCollegeSalary();
+        //Median function
+        double GetMedian(List<double> salaryList);
+        //App methods
+        List<string> GetAllColleges();
+        List<string> GetAllDepartments();
+        List<string> GetAllUnits();
+
+        Stats GetStatistics();
+        Stats GetStatisticsByCollege(string college);
+        Stats GetStatisticsByDepartment(string department);
+        Stats GetStatisticsByUnit(string unit);
     }
 
-    
+    //Data entry model
+    internal class Entry
+    {
+        public string College { get; set; }
+        public string Department { get; set; }
+        public double Salary { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Unit { get; set; }
+    }
+    //Output model
+    public class Stats
+    {
+        public double Average { get; set; }
+        public double Max { get; set; }
+        public double Min { get; set; }
+        public double Median { get; set; }
+    }
 
-    public class InMemoryData : Data
+    //Interface implementation
+    public class InMemoryData : IData
     {
         List<Entry> entries;
         public InMemoryData()
@@ -1512,53 +1533,95 @@ namespace InputData
             };
         }
 
-        public double GetAverageCollegeSalary()
+
+        public double GetMedian(List<double> salaryList)
         {
-            throw new NotImplementedException();
+            var salaryListA = salaryList.ToArray();
+            if (salaryListA == null || salaryListA.Length == 0)
+            {
+                throw new Exception("Median not defined");
+            }
+            double[] sortedList = (double[])salaryListA.Clone();
+            Array.Sort(sortedList);
+            int size = sortedList.Length;
+            int mid = size / 2;
+            double median = (size % 2 != 0) ? (double)sortedList[mid] : ((double)sortedList[mid] + (double)sortedList[mid - 1]) / 2;
+            return median;
+        }
+        public List<string> GetAllColleges()
+        {
+            List<string> ListOfColleges = new List<string>();
+            ListOfColleges = entries.GroupBy(x => x.College).Select(g => g.First().College).ToList();
+            return ListOfColleges;
         }
 
-        public double GetAverageDepartmentSalary()
+        public List<string> GetAllDepartments()
         {
-            throw new NotImplementedException();
+            List<string> ListOfDepartments = new List<string>();
+            ListOfDepartments = entries.GroupBy(x => x.Department).Select(g => g.First().Department).ToList();
+            return ListOfDepartments;
         }
 
-        public double GetMaxCollegeSalary()
+        public List<string> GetAllUnits()
         {
-            throw new NotImplementedException();
+            List<string> ListOfUnits = new List<string>();
+            ListOfUnits = entries.GroupBy(x => x.Unit).Select(g => g.First().Unit).ToList();
+            return ListOfUnits;
         }
 
-        public double GetMaxDepartmentSalary()
+        public Stats GetStatistics()
         {
-            throw new NotImplementedException();
+            Stats thisStat = new Stats();
+            var thisSalaries = entries.Select(g => g.Salary).ToList();
+            thisStat.Average = thisSalaries.Average();
+            thisStat.Max = thisSalaries.Max();
+            thisStat.Min = thisSalaries.Min();
+            thisStat.Median = GetMedian(thisSalaries);
+            return thisStat;
         }
 
-        public double GetMedianCollegeSalary()
+        public Stats GetStatisticsByCollege(string college)
         {
-            throw new NotImplementedException();
+            List<double> thisCollegeSalaries = new List<double>();
+            thisCollegeSalaries = entries.Where(x => x.College == college).Select(g => g.Salary).ToList();
+            Stats thisStat = new Stats
+            {
+                Average = thisCollegeSalaries.Average(),
+                Max = thisCollegeSalaries.Max(),
+                Min = thisCollegeSalaries.Min(),
+                Median = GetMedian(thisCollegeSalaries)
+            };
+            return thisStat;
         }
 
-        public double GetMedianDepartmentSalary()
+        public Stats GetStatisticsByDepartment(string department)
         {
-            throw new NotImplementedException();
+            List<double> thisDepartmentSalaries = new List<double>();
+            thisDepartmentSalaries = entries.Where(x => x.Department == department).Select(g => g.Salary).ToList();
+            Stats thisStat = new Stats
+            {
+                Average = thisDepartmentSalaries.Average(),
+                Max = thisDepartmentSalaries.Max(),
+                Min = thisDepartmentSalaries.Min(),
+                Median = GetMedian(thisDepartmentSalaries)
+            };
+            return thisStat;
         }
 
-        public double GetMinCollegeSalary()
+        public Stats GetStatisticsByUnit(string unit)
         {
-            throw new NotImplementedException();
-        }
-
-        public double GetMinDepartmentSalary()
-        {
-            throw new NotImplementedException();
+            List<double> thisUnitSalaries = new List<double>();
+            thisUnitSalaries = entries.Where(x => x.Unit == unit).Select(g => g.Salary).ToList();
+            Stats thisStat = new Stats
+            {
+                Average = thisUnitSalaries.Average(),
+                Max = thisUnitSalaries.Max(),
+                Min = thisUnitSalaries.Min(),
+                Median = GetMedian(thisUnitSalaries)
+            };
+            return thisStat;
         }
     }
 
-    internal class Entry
-    {
-        public string College { get; set; }
-        public string Department { get; set; }
-        public double Salary { get; set; }
-        public DateTime HireDate { get; set; }
-        public string Unit { get; set; }
-    }
+    
 }
