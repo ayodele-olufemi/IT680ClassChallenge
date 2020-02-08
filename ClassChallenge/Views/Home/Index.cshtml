@@ -1,12 +1,189 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = null;
 }
-@model ClassChallenge.Models.Output
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <form>
-        <label>Department: </label>
-        @Html.DropDownList("Colleges", new SelectList(Model.ListOfColleges))
-    </form>
-</div>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery UI Tabs - Default functionality</title>
+        <script src="~/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+        <script src="~/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+
+
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+    <body>
+        @model ClassChallenge.Models.Output
+
+        <div class="text-center">
+            <div class="card-header bg-primary">
+                <h1 class="display-4">Class Challenge</h1>
+            </div>
+            <div style="background-color: #7df0d7;">
+                <div id="overall" style="width: 90%; background-color: white; margin: 10pt auto; ">
+                    <div class="card-header bg-dark">
+                        <h2 style="color: white">Overall Comparison</h2>
+                    </div>
+                    <div class="card-body" style="display: inline-block">
+                        <div style="width: 20%; float: left;">
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Average</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Average) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Median</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Median) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Minimum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Min) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Maximum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Max) </h3>
+                            </div>
+                        </div>
+                        <div style="width: 80%; float: right; background-color: #ebfff0">
+                            <p>
+                                hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="byDepartment" style="width: 90%; background-color: white; margin: 10pt auto; display:inline-block;">
+                    <div class="card-header bg-success">
+                        <h2 style="color: white">Comparison by Department</h2>
+                        <div>
+                            <label style="color: white">Select Department: </label>
+                            @Html.DropDownList("Departments", new SelectList(Model.ListOfDepartments))
+                            <button>Show Statistics</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="display: inline-block">
+                        <div style="width: 20%; float: left;">
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Average</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Average) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Median</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Median) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Minimum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Min) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Maximum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Max) </h3>
+                            </div>
+                        </div>
+                        <div style="width: 80%; float: right; background-color: #ebfff0">
+                            <p>
+                                hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="byCollege" style="width: 90%; background-color: white; margin: 10pt auto; ">
+                    <div class="card-header bg-danger">
+                        <h2 style="color: white">Comparison by College</h2>
+                        <div>
+                            <label style="color: white">Select College: </label>
+                            @Html.DropDownList("Colleges", new SelectList(Model.ListOfColleges))
+                            <button>Show Statistics</button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="display: inline-block">
+                        <div style="width: 20%; float: left;">
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Average</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.CollegesStats.Average) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Median</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.CollegesStats.Median) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Minimum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.CollegesStats.Min) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Maximum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.CollegesStats.Max) </h3>
+                            </div>
+                        </div>
+                        <div style="width: 80%; float: right; background-color: #ebfff0">
+                            <p>
+                                hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="byUnit" style="width: 90%; background-color: white; margin: 10pt auto; ">
+                    <div class="card-header bg-info">
+                        <h2 style="color: white">Comparison by Unit</h2>
+                        <div>
+                            <label style="color: white">Select Unit: </label>
+                            @Html.DropDownList("Units", new SelectList(Model.ListOfUnits))
+                            <button>Show Statistics</button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="display: inline-block">
+                        <div style="width: 20%; float: left;">
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Average</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Average) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Median</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Median) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Minimum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Min) </h3>
+                            </div>
+                            <div style="border: 3px solid black; margin-bottom: 10px;">
+                                <h4>Maximum</h4>
+                                <h3 style="color: red">@Html.DisplayFor(model => model.OverallStats.Max) </h3>
+                            </div>
+                        </div>
+                        <div style="width: 80%; float: right; background-color: #ebfff0">
+                            <p>
+                                hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj hljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdjhljaj dsd lkajdk ljasdlkjlalkdjlakdkl kajdk akdjfka jdj  jksj lfajkl alkdlka kdj
+                </p>
+            </div>
+
+            <form>
+                <label>Department: </label>
+                @Html.DropDownList("Colleges", new SelectList(Model.ListOfColleges))
+            </form>
+        </div>
+
+        <style>
+            body {
+                width: 50%;
+                margin: auto;
+                background-color: black;
+            }
+        </style>
+    </body>
+ </html>

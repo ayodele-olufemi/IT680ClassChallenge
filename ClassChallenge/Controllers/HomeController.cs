@@ -33,8 +33,35 @@ namespace ClassChallenge.Controllers
             {
                 ListOfColleges = data.GetAllColleges(),
                 ListOfDepartments = data.GetAllDepartments(),
-                ListOfUnits = data.GetAllUnits(), 
-                
+                ListOfUnits = data.GetAllUnits(),
+                OverallStats = new Models.Stats()
+                {
+                    Average = data.GetStatistics().Average,
+                    Min = data.GetStatistics().Min,
+                    Max = data.GetStatistics().Max,
+                    Median = data.GetStatistics().Median
+                },
+                CollegesStats = new Models.Stats()
+                {
+                    Average = data.GetStatisticsByCollege("Admin / Support").Average,
+                    Min = data.GetStatisticsByCollege("Admin / Support").Min,
+                    Max = data.GetStatisticsByCollege("Admin / Support").Max,
+                    Median = data.GetStatisticsByCollege("Admin / Support").Median
+                },
+                DepartmentsStats = new Models.Stats()
+                {
+                    Average = data.GetStatistics().Average,
+                    Min = data.GetStatistics().Min,
+                    Max = data.GetStatistics().Max,
+                    Median = data.GetStatistics().Median
+                },
+                UnitsStats = new Models.Stats()
+                {
+                    Average = data.GetStatistics().Average,
+                    Min = data.GetStatistics().Min,
+                    Max = data.GetStatistics().Max,
+                    Median = data.GetStatistics().Median
+                }
             });
         }
 
